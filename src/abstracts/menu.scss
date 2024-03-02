@@ -1,0 +1,24 @@
+.menu-wrapper{
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+.menu-button{
+    
+    background-color: black;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    align-items: center;
+
+    
+}

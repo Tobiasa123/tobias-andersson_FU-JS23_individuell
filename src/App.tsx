@@ -6,11 +6,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+
+//pages
 import About from "./pages/About";
 import Landing from "./pages/Landing";
 import Menu from "./pages/Menu";
 import Profile from "./pages/Profile";
 import Status from "./pages/Status";
+
+//components
+import Nav from "./components/Nav";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,17 +29,10 @@ const router = createBrowserRouter(
   )
 );
 
-
-import './App.css'
-
-
-
 function App() {
-
   return (
     <>
-     <h1>app</h1>
-      <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
     </>
   )
 }
