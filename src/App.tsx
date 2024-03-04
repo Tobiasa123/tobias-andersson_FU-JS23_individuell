@@ -1,4 +1,4 @@
-
+import "./abstracts/app.scss"
 import {
   createBrowserRouter,
   createRoutesFromElements,
