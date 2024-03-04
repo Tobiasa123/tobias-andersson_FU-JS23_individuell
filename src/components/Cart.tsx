@@ -1,9 +1,18 @@
-import React from 'react'
+import '../abstracts/cart.scss';
 
 const Cart = () => {
   return (
-    <button>my cart</button>
-  )
-}
+    <div className="cart-dropdown">
+      <div className="cart-content">
+        <h1>Din beställning</h1>
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-export default Cart
+export default Cart;

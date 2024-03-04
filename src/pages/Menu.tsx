@@ -2,7 +2,8 @@ import Nav from "../components/Nav"
 import "../abstracts/menu.scss"
 import { useEffect } from "react"
 import { useMenuStore } from "../store/menuStore"
-
+import NavButton from "../components/NavButton"
+import CartButton from "../components/CartButton"
 
 
 const Menu = () => {
@@ -16,7 +17,11 @@ const Menu = () => {
 
   return (
     <>
-      <Nav/>
+      <section className="menu-cart">
+        <NavButton/>
+        <CartButton/>
+      </section>
+      
       <section className="menu-wrapper">
 
       <h1>Menu</h1>

@@ -6,6 +6,7 @@ import Cart from "./Cart"
 const Nav = () => {
   return (
     <>
+    <h1>MY NAVIGATION PAGE</h1>
     <ul className="nav">
         <li className="nav-item">
             <Link to="/Menu">
@@ -27,7 +28,6 @@ const Nav = () => {
                 <button>status</button>
             </Link>
         </li>
-        <Cart/>
     </ul>
     </>
   )

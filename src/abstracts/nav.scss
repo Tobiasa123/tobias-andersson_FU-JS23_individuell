@@ -1,8 +1,10 @@
 
 .nav{
-    background-color: red;
+    background-color: grey;
+    color:  black;
     display: flex;
-    height: 5rem;
+    flex-direction: column;
+    height: 100vh;
     
 }
 .nav-item{

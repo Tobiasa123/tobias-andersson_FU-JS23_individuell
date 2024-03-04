@@ -1,8 +1,9 @@
-import Nav from "../components/Nav"
+
+import NavButton from "../components/NavButton"
 const Status = () => {
   return (
     <>
-    <Nav/>
+    <NavButton/>
     <div>Status</div>
     </>
     
