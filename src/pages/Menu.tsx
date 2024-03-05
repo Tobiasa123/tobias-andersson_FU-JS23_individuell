@@ -10,7 +10,7 @@ const Menu = () => {
 
       //use my fetch function from my menustore,
       //which sets my filtered coffee items
-      const {menuItems, fetchMenuData} = useMenuStore()
+      const {menuItems, fetchMenuData, addToCart} = useMenuStore()
       useEffect(() =>{
         fetchMenuData();
       },[]);
@@ -29,7 +29,7 @@ const Menu = () => {
       <ul className="menu-list">
           {menuItems.map((item, index) => (
             <li key={index} className="menu-item">
-              <button className="menu-button">+</button>
+              <button className="menu-button" onClick={() =>addToCart(item)}>+</button>
               <h2>{item.title}</h2>
               <p>{item.desc}</p>
               <h2>{`${item.price} Kr`}</h2>
