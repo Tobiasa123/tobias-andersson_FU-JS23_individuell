@@ -1,11 +1,15 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@700&family=Work+Sans:ital@0;1&display=swap');
+
 .landing-wrapper{
     background-color: red;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(56, 132, 109, 1);
-    height: 100vh;
+    background-color: $landing-bg;
+    height: 667px;
     background-image: url('../assets/leftlanding.svg'), url('../assets/rightlanding.svg');
     background-position: left, right;
     background-repeat: no-repeat;
@@ -22,11 +26,25 @@
 
 }
 .landing-middle h1{
-    font-size: 2rem;
+  font-family: "Rufina", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 42px;
+  padding-top: 1rem;
+
+}
+.landing-middle p{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 9px;
+    letter-spacing: 3px;
+    line-height: 10.56px;
 
 }
 .landing-logo{
-    width: 5rem;
+    width: 4.5rem;
     justify-self: center;
     align-self: center;
+    
 }

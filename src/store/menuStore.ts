@@ -1,7 +1,5 @@
 
 import { create } from "zustand";
-import Cart from "../components/Cart";
-
 interface MenuItem {
     id: string;
     title: string;
@@ -37,10 +35,8 @@ export const useMenuStore = create<menuStoreState>((set)=>({
       const data = await response.json();
       console.log(data)
       //filer out non coffee products
-      const coffeeItems = data.menu.filter((item: { id: string | string[] }) =>
-        item.id.includes('coffee')
-      );
-      set({menuItems: coffeeItems});
+
+      set({menuItems: data.menu});
     } catch(error){
       console.log("whoops", error)
     }

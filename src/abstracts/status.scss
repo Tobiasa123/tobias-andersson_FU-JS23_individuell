@@ -1,9 +1,10 @@
+@import 'variables';
 .status-wrapper{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 667px;
     justify-content: center;
     align-items: center;
-    background-color: rgba(229, 103, 78, 1);
+    background-color: $status-bg;
     color:white
 }

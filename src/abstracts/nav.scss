@@ -1,10 +1,10 @@
-
+@import 'variables';
 .nav{
-    background-color: grey;
-    color:  black;
+    background-color: $dark-bg;
+    color:  white;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 667px;
     
 }
 .nav-item{
