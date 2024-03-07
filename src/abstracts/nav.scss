@@ -1,12 +1,45 @@
 @import 'variables';
-.nav{
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Rufina:wght@700&family=Work+Sans:ital@0;1&display=swap');
+.nav-wrapper{
     background-color: $dark-bg;
     color:  white;
     display: flex;
     flex-direction: column;
     height: 667px;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     
 }
 .nav-item{
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom:2rem ;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+}
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+.close-button{
+    width: 3rem;
+    position: absolute;
+    margin: 1rem;
+}
+.close-button:hover{
+    cursor: pointer;
+}
+.menu-line{
+    transform: translateY(2000%);
 }

@@ -1,11 +1,15 @@
 import NavButton from "../components/NavButton"
 import '../abstracts/about.scss'
+import ownerImg from '../assets/owner.png'
 
 const About = () => {
   return (
-    <>
-    <NavButton/>
+    
     <article className="about-wrapper">
+      <div className="button-container">
+      <NavButton/>
+      </div>
+      <section className="about-text">
       <h1>Vårt kaffe</h1>
       <p>
         Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio, grounds dripper, crema,
@@ -23,8 +27,16 @@ const About = () => {
         trifecta and body as arabica dripper. In galão black java milk sit trifecta, robusta, acerbic café au lait instant shop latte. Seasonal
           bar shop filter aroma id, crema, affogato viennese cultivar aftertaste, seasonal, percolator cream black, galão flavour, milk aromatic turkish skinny crema.
       </p>
+      <section className="image-container">
+        <img src={ownerImg} alt="" />
+        <h3>Eva Cortado</h3>
+        <p>VD & Grundare</p>
+
+      </section>
+      </section>
+      
+      
     </article>
-    </>
     
   )
 }

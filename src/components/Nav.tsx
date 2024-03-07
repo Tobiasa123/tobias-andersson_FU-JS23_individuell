@@ -1,34 +1,46 @@
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../abstracts/nav.scss"
-import Cart from "./Cart"
+import closeButton from "../assets/closebutton.svg"
+import line from '../assets/menuline.svg'
+import { Navigate } from "react-router-dom"
 
 const Nav = () => {
+    let navigate = useNavigate()
+    const handleClose = () => {
+        navigate('/Menu')
+    }
   return (
     <>
-    <h1>MY NAVIGATION PAGE</h1>
-    <ul className="nav">
-        <li className="nav-item">
-            <Link to="/Menu">
-                <button>Menu</button>
-            </Link>
-         </li>
-        <li className="nav-item">
-            <Link to="/About">
-                <button>about</button>
-            </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/Profile">
-                <button>profile</button>
-            </Link>
-        </li>
-        <li className="nav-item">
-            <Link to="/Status">
-                <button>status</button>
-            </Link>
-        </li>
-    </ul>
+    <img src={closeButton} alt="close button" className="close-button" onClick={handleClose}/>
+    <section className="nav-wrapper">
+
+        <ul className="nav">
+            <li className="nav-item">
+                <Link to="/Menu">
+                    <h1 >Meny</h1>
+                </Link>
+                <img src={line} alt="" className="menu-line"/>
+            </li>
+            <li className="nav-item">
+                <Link to="/About">
+                    <h1>Vårt kaffe</h1>
+                </Link>
+                <img src={line} alt="" className="menu-line"/>
+            </li>
+            <li className="nav-item">
+                <Link to="/Profile">
+                    <h1>Min profil</h1>
+                </Link>
+                <img src={line} alt="" className="menu-line"/>
+            </li>
+            <li className="nav-item">
+                <Link to="/Status">
+                    <h1>Orderstatus</h1>
+                </Link>
+            </li>
+        </ul>
+    </section>
     </>
   )
 }

@@ -1,4 +1,5 @@
 @import './variables';
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Rufina:wght@700&family=Work+Sans:ital@0;1&display=swap');
 .cart-button{
     z-index: 1;
     display: flex;
@@ -10,4 +11,18 @@
     background-color: $dark-bg;
     width: 3.8rem;
     height: 3.8rem;
+    justify-self: right;
+}
+.cart-quantity{
+    background-color: $status-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    position: absolute;
+    transform: translate(20px, -20px);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-family: "PT Serif", serif;
 }

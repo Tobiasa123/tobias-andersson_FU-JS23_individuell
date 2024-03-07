@@ -4,13 +4,14 @@ import '../abstracts/profile.scss'
 
 const Profile = () => {
   return (
-    <>
-    <NavButton/>
+
     <section className="profile-wrapper">
+      <div className="button-container">
+        <NavButton/>
+      </div>
       <form action="" className="profile-form">FORM HERE</form>
     </section>
- 
-    </>
+
     
   )
 }

@@ -9,11 +9,23 @@
   background-color: rgba(0, 0, 0, 0.702);
 
 }
+.cart-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 8.5%;
+  right:10%;
+  margin-left: -10px; /* Adjust as needed for the positioning of the triangle */
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent rgb(255, 255, 255) transparent;
+  border-radius: 2px;
+  z-index: 2;
+}
 .cart-content {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 10%;
+  top: 11%;
   left: 50%;
   width: 95%;
   height: 70%;

@@ -64,7 +64,8 @@ const Cart = () => {
             <li key={index} className='cart-list-item'>
               <div className='cart-text'>
                 <h2 className='cart-item-header'>{item?.title}</h2> 
-                <p className='cart-smalltext'>{`${item.price * item.quantity} Kr`}</p>
+                <p className='cart-smalltext'>{`${item.price * item.quantity} Kr`}
+                </p>
               </div>
               <div className='add-delete'>
                 <img src={arrowUp} alt="" className='arrow-up' onClick={() => addFromCart(item)} />
