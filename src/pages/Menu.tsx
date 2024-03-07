@@ -18,14 +18,14 @@ const Menu = () => {
 
   return (
     <>
+      
+      <section className="menu-wrapper">
       <section className="menu-cart">
         <NavButton/>
         <CartButton/>
       </section>
-      
-      <section className="menu-wrapper">
 
-      <h1>Meny</h1>
+      <h1 className="menu-header">Meny</h1>
 
       <ul className="menu-list">
           {menuItems.map((item, index) => (

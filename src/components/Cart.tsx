@@ -58,11 +58,14 @@ const Cart = () => {
   return (
     <div className="cart-dropdown">
       <div className="cart-content">
-        <h1>Din beställning</h1>
-        <ul>
+        <h1 className='cart-header'>Din beställning</h1>
+        <ul className='cart-list'>
           {cartItems.map((item, index) => (
-            <li key={index}>
-              {`${item?.title} ${item.price * item.quantity} Kr  ....`}
+            <li key={index} className='cart-list-item'>
+              <div className='cart-text'>
+                <h2 className='cart-item-header'>{item?.title}</h2> 
+                <p className='cart-smalltext'>{`${item.price * item.quantity} Kr`}</p>
+              </div>
               <div className='add-delete'>
                 <img src={arrowUp} alt="" className='arrow-up' onClick={() => addFromCart(item)} />
                 <span>{item.quantity}</span>
@@ -71,13 +74,18 @@ const Cart = () => {
             </li>
           ))}
         </ul>
-        <h3>Total: ... {total} Kr</h3>
+        <section className='big-total-wrapper'>
+          <section className='small-total_wrapper'>
+            <h2 className='cart-total'>Total: </h2>
+            <h2 className='cart-total-amount'>{total} kr</h2>
+          </section>
+          <p>inkl moms + drönarleverans</p>
+        </section>
+        
         {/*only render button if order isn't empty*/}
         {total > 0 &&(
-          <button onClick={handleBuy}>Take my money!</button>
+          <button onClick={handleBuy} className='order-button'>Take my money!</button>
         )}
-        
-        
       </div>
     </div>
   );

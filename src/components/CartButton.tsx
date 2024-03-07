@@ -1,7 +1,6 @@
 import cartIcon from "../assets/bag.svg"
 import Cart from "./Cart"
 import { useState } from "react"
-
 import "../abstracts/cartbutton.scss"
 
 const CartButton = () => {
@@ -14,7 +13,7 @@ const CartButton = () => {
 
   return (
     <>
-     <button className="cart-button" style={{backgroundColor: "black"}} onClick={handleClick}>
+     <button className="cart-button" onClick={handleClick}>
         <img src={cartIcon} alt="" />
      </button>
 
