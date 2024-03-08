@@ -22,17 +22,17 @@ const Status = () => {
     <>
     {eta !== undefined && orderNr !== undefined && (
       <section className="status-wrapper">
-        <p>#{orderNr}</p>
+        <p className="orderNr-text">Ordernummer <span className="bold-span_status">#{orderNr}</span></p>
         <img src={drone} alt="" />
-        <h1>Din beställning är på väg!</h1>
-        <p>{eta} minutes!</p>
-        <button onClick={handleStatusButton}>Ok, cool!</button>
+        <h2 className="status-bigText">Din beställning är på väg!</h2>
+        <p className="eta-text"><span className="bold-span_status">{eta}</span> minuter</p>
+        <button onClick={handleStatusButton} className="status-button">Ok, cool!</button>
       </section>
     )}
     {eta == undefined && orderNr == undefined && (
        <section className="status-wrapper">
-        <h1>Place an order to view your order status!</h1>
-        <button onClick={handleStatusButton}>Ok, cool!</button>
+        <h2 className="status-bigText">Place an order to view your order status!</h2>
+        <button onClick={handleStatusButton} className="status-button">Ok, cool!</button>
       </section>
     )}
   </>

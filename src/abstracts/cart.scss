@@ -1,6 +1,5 @@
 @import './variables';
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Rufina:wght@700&family=Work+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@700&family=Work+Sans:ital@0;1&display=swap');
+
 .cart-dropdown {
   position: fixed;
   top: 0px;
@@ -33,6 +32,7 @@
   background-color: #fff; 
   padding: 20px;
   border-radius: 3px;
+  color: $dark-bg;
 }
 .cart-header{
  justify-self: center;
@@ -41,6 +41,7 @@
   font-family: "PT Serif", serif;
   font-weight: 700;
   margin-bottom: 2rem;
+  padding-top: 1rem;
   
 }
 .cart-list{
@@ -49,6 +50,11 @@
   list-style: none;
   width: 100%;
   height: 100%;
+  overflow:scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 .cart-list-item{
   display: flex;
@@ -108,6 +114,10 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  background-image: url('../assets/dots.svg');
+  background-repeat: no-repeat;
+  background-position: 55% 80%;
+  background-size: 50%;
 }
 .cart-total{
   width: 100%;
@@ -116,7 +126,7 @@
   width: 50%;
   transform: translateX(40%);
 }
-.order-button{
+.order-button_cart{
   background-color: $dark-bg;
   color: white;
   font-size: 30px;

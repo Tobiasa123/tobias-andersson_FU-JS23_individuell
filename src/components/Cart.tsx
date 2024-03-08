@@ -85,7 +85,7 @@ const Cart = () => {
         
         {/*only render button if order isn't empty*/}
         {total > 0 &&(
-          <button onClick={handleBuy} className='order-button'>Take my money!</button>
+          <button onClick={handleBuy} className='order-button_cart'>Take my money!</button>
         )}
       </div>
     </div>

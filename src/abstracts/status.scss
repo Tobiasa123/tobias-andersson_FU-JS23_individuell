@@ -1,4 +1,5 @@
 @import 'variables';
+
 .status-wrapper{
     display: flex;
     flex-direction: column;
@@ -6,5 +7,41 @@
     justify-content: center;
     align-items: center;
     background-color: $status-bg;
-    color:white
+    color:white;
+}
+.status-button{
+  background-color: white;  
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  color: $dark-bg;
+  margin-top: 3rem;
+  width: 12rem;
+  height: 3.5rem;
+  border-radius: 5rem;
+  border-style: none;
+  font-size: 25px;
+}
+.status-bigText{
+    font-size: 40px;
+    text-align: center;
+    padding-right: 3rem;
+    padding-left:3rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-family: "PT Serif", serif;
+    font-weight: 500;
+}
+
+.eta-text{
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.orderNr-text{
+    margin-bottom: 3rem;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.674);
+}
+.bold-span_status{
+    font-weight: bold;
 }

@@ -3,12 +3,21 @@
 .about-wrapper {
     display: flex;
     background-color: $main-bg;
-    height: 100vh;
+    height: 115vh;
     width: 100%;
     background-image: url('../assets/menutop.svg'), url('../assets/menubottom.svg');
     background-position: top, bottom;
     background-repeat: no-repeat;
     background-size: auto, auto;
+    align-items: center;
+}
+.about_text-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 70%;
+    color: $dark-bg;
 }
 .button-container {
     position: absolute;
@@ -18,16 +27,36 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
 }
 .image-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
+
 
 }
 .image-container img{
-    width: 3.5rem;
-    
+    width: 3.8rem;
+}
+.about-header{
+    font-size: 42px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+
+}
+.bold-text_about{
+    font-weight: bold;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 25px;
+}
+.light-text_about{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
 }
