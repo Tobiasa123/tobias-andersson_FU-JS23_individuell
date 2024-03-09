@@ -123,9 +123,11 @@
     width: 100%;
     height: 100%;
     color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .profile-logo{
-    width: 25%;
+    width: 30%;
     margin-bottom: 1rem;
 }
 .profile-name{
@@ -144,7 +146,6 @@
     font-family: "PT Serif", serif;
     font-weight: 400;
     width: 100%;
-    padding-left: 1rem;
 }
 .profile_total-wrapper{
     display: flex;
@@ -155,8 +156,6 @@
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
 
 }
 .breakline-profile{

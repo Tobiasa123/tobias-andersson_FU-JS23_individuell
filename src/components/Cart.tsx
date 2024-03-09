@@ -24,11 +24,27 @@ const Cart = () => {
           },
         }),
       });
-  
+
+      console.log(cartItems)
+ 
       if (response.ok) {
+
         const result = await response.json();
         const { orderNr } = result;
-        
+
+           // get data
+           const existingSessionOrders = sessionStorage.getItem('orderData');
+           const currentOrder = existingSessionOrders ? JSON.parse(existingSessionOrders) : [];
+     
+           //get total for cart
+           const orderTotal = getCartTotal();
+     
+           //push data into current order
+           currentOrder.push({orderNr: orderNr, total: orderTotal });
+
+           //set current order in my order data in sessionstorage
+           sessionStorage.setItem('orderData', JSON.stringify(currentOrder));
+
         //pass ordernumber into url
         const etaResponse = await fetch(`https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order/status/${orderNr}`, {
           method: 'GET',
@@ -40,7 +56,8 @@ const Cart = () => {
         if (etaResponse.ok) {
           const etaResult = await etaResponse.json();
           const { eta } = etaResult;
-  
+
+
           console.log("orderNr:", orderNr);
           console.log("ETA for the order:", eta);
 
@@ -52,6 +69,10 @@ const Cart = () => {
     } catch (error) {
       console.error('order error');
     }
+
+    //get my order history 
+
+
   };
   
 
