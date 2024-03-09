@@ -1,20 +1,167 @@
 @import 'variables';
 
 .profile-wrapper{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     background-color: $dark-bg;
     height: 667px;
+    background-image: url('../assets/menutop.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto, auto;
+}
+.button-container{
+    z-index: 3;
 }
 .profile-form{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: $main-bg;
-    height: 70%;
+    color: $dark-bg;
+    height: 85%;
     width: 90%;
-    margin: 0 auto;
+    right: 20px;
+    top: 80px;
+    border-radius: 5px;
+    z-index: 2; 
+    justify-content: flex-start;
+    padding: 1rem;
+    text-align: center;
 }
+.form-header{
+    font-size: 30px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 0.5rem;
+}
+.form-desc{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    margin-bottom: 2.5rem;
+}
+.form-logo{
+    margin-top: 1rem;
+    margin-bottom: 5px;
+}
+.form-name_wrapper{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form-email_wrapper{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputs{
+    background-color: transparent;
+    border: 1px solid $dark-bg;
+    height: 3rem;
+    border-radius: 6px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.form-label{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.checkBox-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5px;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+.form_check-box{
+    border-radius: 50%;
+}
+.form_submit-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    background-color: $dark-bg;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    width: 15rem;
+    height: 3.5rem;
+
+}
+
+
+
+
+
+
+.profile-info {
+    position: relative;
+    z-index: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    top: 20%;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+.profile-logo{
+    width: 25%;
+    margin-bottom: 1rem;
+}
+.profile-name{
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+
+
+}
+.profile-email{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 5rem;
+}
+.order-history{
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    width: 100%;
+    padding-left: 1rem;
+}
+.profile_total-wrapper{
+    display: flex;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+.breakline-profile{
+    width: 92%;
+    margin: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.507);
+}
+

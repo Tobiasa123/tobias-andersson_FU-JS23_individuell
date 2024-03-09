@@ -3,12 +3,11 @@ import { Link, useNavigate } from "react-router-dom"
 import "../abstracts/nav.scss"
 import closeButton from "../assets/closebutton.svg"
 import line from '../assets/menuline.svg'
-import { Navigate } from "react-router-dom"
 
 const Nav = () => {
     let navigate = useNavigate()
     const handleClose = () => {
-        navigate('/Menu')
+        navigate(-1)
     }
   return (
     <>
@@ -18,7 +17,7 @@ const Nav = () => {
         <ul className="nav">
             <li className="nav-item">
                 <Link to="/Menu">
-                    <h1 >Meny</h1>
+                    <h1>Meny</h1>
                 </Link>
                 <img src={line} alt="" className="menu-line"/>
             </li>
