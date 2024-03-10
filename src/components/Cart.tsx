@@ -36,11 +36,22 @@ const Cart = () => {
            const existingSessionOrders = sessionStorage.getItem('orderData');
            const currentOrder = existingSessionOrders ? JSON.parse(existingSessionOrders) : [];
      
+           //get the date of the purchase
+           //new instance of Date()
+           const currentDate = new Date();
+
+           //only get last 2 digits from 2024
+           const formattedYear = currentDate.getFullYear().toString().slice(-2);
+
+           //formatting for the date
+           const formattedDate = `${formattedYear}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`;
+
+
            //get total for cart
            const orderTotal = getCartTotal();
      
            //push data into current order
-           currentOrder.push({orderNr: orderNr, total: orderTotal });
+           currentOrder.push({orderNr: orderNr, total: orderTotal, date: formattedDate });
 
            //set current order in my order data in sessionstorage
            sessionStorage.setItem('orderData', JSON.stringify(currentOrder));

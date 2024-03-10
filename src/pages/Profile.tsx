@@ -7,6 +7,7 @@ import profileLogo from '../assets/profile.svg'
 interface OrderData {
   orderNr: string;
   total: number;
+  date: string;
 }
 
 const Profile = () => {
@@ -53,7 +54,8 @@ const Profile = () => {
     setProfileEmail(event.target.value);
   };
 
-  const handleButtonClick = async () => {
+  const handleButtonClick = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     //toggle the form
     toggleForm();
     console.log(profileName)
@@ -103,12 +105,18 @@ const Profile = () => {
         <h2 className="profile-name">{profileName}</h2>
         <p className="profile-email">{profileEmail}</p>
         <h2 className="order-history">Orderhistorik</h2>
-        <ul>
+        <ul className="order-history_list">
           {orderHistory.map((order, index) => (
-            <li key={index} className="order-history_list">{`#${order.orderNr}   ${order.total} kr`}</li>
+            <li key={index} className="order-history_item">
+
+              <p className="order-history_above">#{order.orderNr} <span className="order-history_date">{order.date}</span></p>
+              <p className="order-history_below">total ordersumma <span className="order-history_total">{order.total}kr</span></p>
+              <hr className={`breakline-profile ${index === orderHistory.length - 1 ? 'last-order' : ''}`} />
+              
+            </li>
           ))}
         </ul>
-        <hr className="breakline-profile" />
+        <hr className="breakline-profile_total" />
         <section className="profile_total-wrapper">
           <p>Totalt spenderat</p>  
           <span>{customTotal} kr</span>
@@ -116,7 +124,8 @@ const Profile = () => {
       </section>
 
       {!isSignedIn && isFormVisible && (
-        <form className="profile-form">
+        <form className="profile-form" onSubmit={handleButtonClick}>
+
           <img src={logo} alt="" className="form-logo" />
           <h1 className="form-header">Välkommen till AirBean-familjen!</h1>
 
@@ -129,6 +138,7 @@ const Profile = () => {
               className="name-input inputs"
               value={profileName}
               onChange={handleNameChange}
+              required
             />
           </section>
 
@@ -139,15 +149,18 @@ const Profile = () => {
               className="mail-input inputs"
               value={profileEmail}
               onChange={handleEmailChange}
+              required
             />
           </section>
 
           <section className="checkBox-wrapper">
-            <input type="checkbox" className="form_check-box" />
-            <p>GDPR ok!</p>
+            <label>
+             <input type="checkbox" className="form_check-box" required />
+              <p>GDPR Ok!</p>
+             </label>
           </section>
 
-          <button className="form_submit-button" onClick={handleButtonClick}>
+          <button className="form_submit-button"  type="submit">
             Brew me a cup!
           </button>
         </form>
