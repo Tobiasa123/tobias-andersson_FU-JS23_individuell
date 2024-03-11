@@ -40,12 +40,12 @@ const Cart = () => {
            //new instance of Date()
            const currentDate = new Date();
 
-           //only get last 2 digits from 2024
+           //format date correctly
            const formattedYear = currentDate.getFullYear().toString().slice(-2);
+           const formattedMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+           const formattedDay = currentDate.getDate().toString().padStart(2, '0');
 
-           //formatting for the date
-           const formattedDate = `${formattedYear}/${currentDate.getMonth() + 1}/${currentDate.getDate()}`;
-
+           const formattedDate = `${formattedYear}/${formattedMonth}/${formattedDay}`;
 
            //get total for cart
            const orderTotal = getCartTotal();

@@ -9,8 +9,7 @@ import CartButton from "../components/CartButton"
 
 const Menu = () => {
 
-      //use my fetch function from my menustore,
-      //which sets my filtered coffee items
+      //use my menustore
       const {menuItems, fetchMenuData, addToCart} = useMenuStore()
       useEffect(() =>{
         fetchMenuData();

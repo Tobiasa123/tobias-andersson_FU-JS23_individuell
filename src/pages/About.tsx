@@ -33,8 +33,8 @@ const About = () => {
 
               <section className="image-container">
                 <img src={ownerImg} alt="" />
-                <h3>Eva Cortado</h3>
-                <p>VD & Grundare</p>
+                <h3 className="owner-heading">Eva Cortado</h3>
+                <p className="owner-text">VD & Grundare</p>
               </section>
           </section>
         </article>

@@ -63,36 +63,64 @@ const Profile = () => {
     
     //post new user to api
     try {
-      const response = await fetch('https://airbean-api-xjlcn.ondigitalocean.app/api/user/signup', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: profileName,
-          password: profileEmail, //server wants password, so temp email here
-        }),
-      });
-      
+      //signup
+      const signupResponse = await fetch(
+        'https://airbean-api-xjlcn.ondigitalocean.app/api/user/signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: profileName,
+            password: 'password', //default password
+          }),
+        }
+      );
   
-      if (!response.ok) {
-        console.error("Failed to update profile on the server");
-      } else {
-        const responseData = await response.json();
-        console.log('Server Response:', responseData);
-        setIsSignedIn(true);
-
-        //set values form sessionstorage
-        sessionStorage.setItem("profileName", JSON.stringify(profileName));
-        sessionStorage.setItem("profileEmail", JSON.stringify(profileEmail));
-        sessionStorage.setItem("isSignedIn", JSON.stringify(true));
-
-        clearOrderData()
+      if (!signupResponse.ok) {
+        console.error('Failed to sign up');
+        return;
       }
+  
+      //if signup successful, log in aswell
+      const loginResponse = await fetch(
+        'https://airbean-api-xjlcn.ondigitalocean.app/api/user/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: profileName,
+            password: 'password',
+          }),
+        }
+      );
+  
+      if (!loginResponse.ok) {
+        console.error('Failed to log in');
+        return;
+      }
+  
+      //when signup and signin is succesful
+      const loginData = await loginResponse.json();
+      //this returns login token
+      console.log('Login Response:', loginData);
+  
+      setIsSignedIn(true);
+  
+      //save necessary data and token in sessionstorage
+      sessionStorage.setItem('profileName', JSON.stringify(profileName));
+      sessionStorage.setItem('profileEmail', JSON.stringify(profileEmail));
+      sessionStorage.setItem('isSignedIn', JSON.stringify(true));
+      sessionStorage.setItem('token', JSON.stringify(loginData.token));
+  
+      clearOrderData();
     } catch (error) {
       console.log(error);
     }
-};
+  };
 
   return (
     <section className="profile-wrapper">
