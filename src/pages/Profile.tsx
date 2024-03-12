@@ -17,6 +17,8 @@ const Profile = () => {
   const [isFormVisible, setFormVisible] = useState(true);
   const [profileName, setProfileName] = useState("");
   const [profileEmail, setProfileEmail] = useState("");
+  //check if gdpr is checked else show pupup message
+  const [isGDPRChecked, setIsGDPRChecked] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
@@ -54,12 +56,21 @@ const Profile = () => {
     setProfileEmail(event.target.value);
   };
 
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsGDPRChecked(event.target.checked);
+  };
+
   const handleButtonClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //toggle the form
-    toggleForm();
+    if (!isGDPRChecked) {
+      alert("Please accept GDPR to continue");
+      return;
+    }
+ 
     console.log(profileName)
     console.log(profileEmail)
+
+  
     
     //post new user to api
     try {
@@ -98,25 +109,41 @@ const Profile = () => {
         }
       );
   
-      if (!loginResponse.ok) {
-        console.error('Failed to log in');
-        return;
+      const signupData = await signupResponse.json();
+      if (!signupData.success) {
+        console.log(signupData)
+        alert('Failed to sign up');
+      return;
       }
-  
-      //when signup and signin is succesful
       const loginData = await loginResponse.json();
-      //this returns login token
-      console.log('Login Response:', loginData);
+      if (!loginData.success) {
+        console.log(loginData)
+      alert('Failed to log in');
+
+      return;
+    }
   
-      setIsSignedIn(true);
-  
-      //save necessary data and token in sessionstorage
-      sessionStorage.setItem('profileName', JSON.stringify(profileName));
-      sessionStorage.setItem('profileEmail', JSON.stringify(profileEmail));
-      sessionStorage.setItem('isSignedIn', JSON.stringify(true));
-      sessionStorage.setItem('token', JSON.stringify(loginData.token));
-  
-      clearOrderData();
+    //if both checks are sucessful
+      if (signupData.success && loginData.success) {
+
+        console.log('Login Response:', loginData);
+      
+        setIsSignedIn(true);
+      
+        // Spara nödvändig data och token i sessionStorage
+        sessionStorage.setItem('profileName', JSON.stringify(profileName));
+        sessionStorage.setItem('profileEmail', JSON.stringify(profileEmail));
+        sessionStorage.setItem('isSignedIn', JSON.stringify(true));
+        sessionStorage.setItem('token', JSON.stringify(loginData.token));
+      
+        clearOrderData();
+      
+        toggleForm();
+      } else {
+
+        console.error('Signup or login failed');
+      }
+
     } catch (error) {
       console.log(error);
     }
@@ -173,7 +200,7 @@ const Profile = () => {
           <section className="form-email_wrapper">
             <label htmlFor="mail-input" className="form-label">Epost</label>
             <input
-              type="text"
+              type="email"
               className="mail-input inputs"
               value={profileEmail}
               onChange={handleEmailChange}
@@ -183,7 +210,11 @@ const Profile = () => {
 
           <section className="checkBox-wrapper">
             <label>
-             <input type="checkbox" className="form_check-box" required />
+             <input type="checkbox"
+                  className="form_check-box"
+                  checked={isGDPRChecked}
+                  onChange={handleCheckboxChange}
+              />
               <p>GDPR Ok!</p>
              </label>
           </section>
