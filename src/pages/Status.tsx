@@ -33,7 +33,7 @@ const Status = () => {
     )}
     {eta == undefined && orderNr == undefined && (
        <section className="status-wrapper">
-        <h2 className="status-bigText">Place an order to view your order status!</h2>
+        <h2 className="status-bigText">Din beställning visas här!</h2>
         <button onClick={handleStatusButton} className="status-button">Ok, cool!</button>
       </section>
     )}
