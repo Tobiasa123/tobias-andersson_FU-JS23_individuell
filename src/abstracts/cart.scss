@@ -6,34 +6,35 @@
   width: 375px;
   height: 790px;
   background-color: rgba(0, 0, 0, 0.702);
-  z-index: 0;
-}
-.cart-dropdown::before {
-  content: "";
-  position: absolute;
-  top: 8.5%;
-  right: 10%;
-  margin-left: -10px; /* Adjust as needed for the positioning of the triangle */
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent transparent rgb(255, 255, 255) transparent;
-  border-radius: 2px;
-  z-index: 2;
+  z-index: 1;
 }
 .cart-content {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 10.9%;
+  top: 7.6%;
   left: 50%;
-  width: 95%;
-  height: 70%;
+  width: 350px;
+  height: 575px;
   transform: translate(-50%);
   background-color: #fff; 
   padding: 20px;
   border-radius: 3px;
   color: $dark-bg;
-  z-index: 2;
+  z-index: 4;
+}
+//the small triangle that points to the cart button
+.cart-content::before {
+  content: "";
+  position: absolute;
+  top: -3.3%;
+  right: 7%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent rgb(255, 255, 255) transparent;
+  border-radius: 2px;
+  pointer-events: none;
 }
 .cart-header{
  justify-self: center;

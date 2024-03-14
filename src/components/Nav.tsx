@@ -6,9 +6,12 @@ import line from '../assets/menuline.svg'
 
 const Nav = () => {
     let navigate = useNavigate()
+
+    //navigate back to the page you were before opening the nav
     const handleClose = () => {
         navigate(-1)
     }
+
   return (
     <>
     <img src={closeButton} alt="close button" className="close-button" onClick={handleClose}/>

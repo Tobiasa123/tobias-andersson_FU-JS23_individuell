@@ -1,5 +1,7 @@
 
 import { create } from "zustand";
+
+//interfaces for cartitem and menuitem
 interface MenuItem {
     id: string;
     title: string;
@@ -33,9 +35,6 @@ export const useMenuStore = create<menuStoreState>((set)=>({
     try{
       const response = await fetch('https://airbean-api-xjlcn.ondigitalocean.app/api/beans/');
       const data = await response.json();
-      console.log(data)
-      //filer out non coffee products
-
       set({menuItems: data.menu});
     } catch(error){
       console.log("whoops", error)
@@ -47,6 +46,8 @@ export const useMenuStore = create<menuStoreState>((set)=>({
     set((state) => {
       const existingItemIndex = state.cartItems.findIndex((cartItem) => cartItem.id === item.id);
 
+      //check if item exists cart, if it does inly increase the quantity for that said item
+      //else adds cartitem and sets quantity to 1
       if (existingItemIndex !== -1) {
         const updatedCartItems = [...state.cartItems];
         updatedCartItems[existingItemIndex].quantity += 1;
@@ -62,6 +63,7 @@ export const useMenuStore = create<menuStoreState>((set)=>({
     set((state) => {
       const existingItem = state.cartItems.find((cartItem) => cartItem.id === item.id);
 
+      //add an item in the cart with the arrows
       if (existingItem) {
         const updatedCartItems = state.cartItems.map((cartItem) =>
           cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
@@ -77,6 +79,7 @@ export const useMenuStore = create<menuStoreState>((set)=>({
     set((state) => {
       const existingItem = state.cartItems.find((cartItem) => cartItem.id === item.id);
 
+      //delete an item in the cart with the arrows
       if (existingItem && existingItem.quantity > 1) {
         const updatedCartItems = state.cartItems.map((cartItem) =>
           cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem

@@ -6,7 +6,6 @@ const About = () => {
   return (
     
     <div className="about-wrapper">
-
         <div className="button-container">
         <NavButton/>
         </div>
@@ -40,12 +39,6 @@ const About = () => {
         </article>
 
     </div>
-
-     
-
-      
-      
-    
     
   )
 }

@@ -10,7 +10,7 @@ const Cart = () => {
   const total = getCartTotal()
   const navigate = useNavigate()
 
-
+  //here i post my order from cart
   const handleBuy = async () => {
     try {
       const response = await fetch('https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order', {
@@ -24,15 +24,13 @@ const Cart = () => {
           },
         }),
       });
-
-      console.log(cartItems)
  
       if (response.ok) {
 
         const result = await response.json();
         const { orderNr } = result;
 
-           // get data
+           //get data
            const existingSessionOrders = sessionStorage.getItem('orderData');
            const currentOrder = existingSessionOrders ? JSON.parse(existingSessionOrders) : [];
      
@@ -53,10 +51,10 @@ const Cart = () => {
            //push data into current order
            currentOrder.push({orderNr: orderNr, total: orderTotal, date: formattedDate });
 
-           //set current order in my order data in sessionstorage
+           //set current order in my orderdata in sessionstorage
            sessionStorage.setItem('orderData', JSON.stringify(currentOrder));
 
-        //pass ordernumber into url
+        //pass ordernumber into url to get the eta
         const etaResponse = await fetch(`https://airbean-api-xjlcn.ondigitalocean.app/api/beans/order/status/${orderNr}`, {
           method: 'GET',
           headers: {
@@ -68,10 +66,7 @@ const Cart = () => {
           const etaResult = await etaResponse.json();
           const { eta } = etaResult;
 
-
-          console.log("orderNr:", orderNr);
-          console.log("ETA for the order:", eta);
-
+          //navigate to my status page and pass the data i got here
           navigate('/Status', { state: { eta, orderNr } });
         } else {
           console.error('eta error');
@@ -81,14 +76,12 @@ const Cart = () => {
       console.error('order error');
     }
 
-    //get my order history 
-
-
   };
   
 
   return (
-    <div className="cart-dropdown">
+    <>
+    <div className="cart-dropdown"></div>
       <div className="cart-content">
         <h1 className='cart-header'>Din beställning</h1>
         <ul className='cart-list'>
@@ -120,7 +113,7 @@ const Cart = () => {
           <button onClick={handleBuy} className='order-button_cart'>Take my money!</button>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

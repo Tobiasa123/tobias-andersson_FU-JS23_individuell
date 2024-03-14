@@ -15,7 +15,7 @@ const CartButton = () => {
       const cartItems = useMenuStore((state) => state.cartItems);
 
 
-      //cart quantity
+      //cart quantity which is displayed on my cartbutton
       const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
     
 

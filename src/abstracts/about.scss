@@ -3,7 +3,7 @@
 .about-wrapper {
     display: flex;
     background-color: $main-bg;
-    height: 115vh;
+    min-height: 115vh;
     width: 100%;
     background-image: url('../assets/menutop.svg'), url('../assets/menubottom.svg');
     background-position: top, bottom;
@@ -35,8 +35,6 @@
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-
-
 }
 .image-container img{
     width: 3.8rem;

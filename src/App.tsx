@@ -7,14 +7,14 @@ import {
 } from "react-router-dom";
 
 
-//pages
+//import my pages
 import About from "./pages/About";
 import Landing from "./pages/Landing";
 import Menu from "./pages/Menu";
 import Profile from "./pages/Profile";
 import Status from "./pages/Status";
 
-//components
+//import components this is kind of a page aswell
 import Nav from "./components/Nav";
 
 const router = createBrowserRouter(

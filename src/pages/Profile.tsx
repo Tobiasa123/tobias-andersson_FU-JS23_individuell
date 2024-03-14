@@ -17,8 +17,10 @@ const Profile = () => {
   const [isFormVisible, setFormVisible] = useState(true);
   const [profileName, setProfileName] = useState("");
   const [profileEmail, setProfileEmail] = useState("");
-  //check if gdpr is checked else show pupup message
+
+  //check if gdpr is checked
   const [isGDPRChecked, setIsGDPRChecked] = useState(false);
+
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
@@ -44,37 +46,37 @@ const Profile = () => {
   //get the total for all bough items in cart
   const customTotal = orderHistory.reduce((acc, order) => acc + order.total, 0);
 
+  //toggle the form
   const toggleForm = () => {
     setFormVisible((prevVisible) => !prevVisible);
   };
 
+  //handle name and email to pass it to profile
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setProfileName(event.target.value);
   };
-
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setProfileEmail(event.target.value);
   };
 
+  //handle checkbox
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     setIsGDPRChecked(event.target.checked);
   };
 
   const handleButtonClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    //check if gdpr is checked
     if (!isGDPRChecked) {
       alert("Please accept GDPR to continue");
       return;
     }
- 
-    console.log(profileName)
-    console.log(profileEmail)
 
-  
-    
     //post new user to api
     try {
-      //signup
+
+      //signup api endpoint
       const signupResponse = await fetch(
         'https://airbean-api-xjlcn.ondigitalocean.app/api/user/signup',
         {
@@ -108,29 +110,25 @@ const Profile = () => {
           }),
         }
       );
-  
       const signupData = await signupResponse.json();
+
+      //check if everything is successful
       if (!signupData.success) {
-        console.log(signupData)
         alert('Failed to sign up');
       return;
       }
       const loginData = await loginResponse.json();
       if (!loginData.success) {
-        console.log(loginData)
       alert('Failed to log in');
-
       return;
     }
   
     //if both checks are sucessful
       if (signupData.success && loginData.success) {
-
-        console.log('Login Response:', loginData);
       
         setIsSignedIn(true);
       
-        // Spara nödvändig data och token i sessionStorage
+        //save login info in sessionstorage
         sessionStorage.setItem('profileName', JSON.stringify(profileName));
         sessionStorage.setItem('profileEmail', JSON.stringify(profileEmail));
         sessionStorage.setItem('isSignedIn', JSON.stringify(true));
@@ -138,12 +136,11 @@ const Profile = () => {
       
         clearOrderData();
       
+        //toggle form lastly
         toggleForm();
       } else {
-
         console.error('Signup or login failed');
       }
-
     } catch (error) {
       console.log(error);
     }
@@ -151,10 +148,10 @@ const Profile = () => {
 
   return (
     <section className="profile-wrapper">
+
       <div className="button-container">
         <NavButton />
       </div>
-
       <section className="profile-info">
         <img src={profileLogo} className="profile-logo" alt="" />
         <h2 className="profile-name">{profileName}</h2>
@@ -166,8 +163,9 @@ const Profile = () => {
 
               <p className="order-history_above">#{order.orderNr} <span className="order-history_date">{order.date}</span></p>
               <p className="order-history_below">total ordersumma <span className="order-history_total">{order.total}kr</span></p>
-              <hr className={`breakline-profile ${index === orderHistory.length - 1 ? 'last-order' : ''}`} />
               
+              {/* if the order is last make the last hr bolder */}
+              <hr className={`breakline-profile ${index === orderHistory.length - 1 ? 'last-order' : ''}`} />
             </li>
           ))}
         </ul>

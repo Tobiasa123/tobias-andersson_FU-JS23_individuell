@@ -18,6 +18,8 @@ const Status = () => {
     clearCart()
     navigate("/Menu")
   }
+
+  //in return, select what to render depending on if user placed an order
   return (
     <>
     {eta !== undefined && orderNr !== undefined && (
