@@ -5,11 +5,9 @@ import { useMenuStore } from "../store/menuStore"
 import NavButton from "../components/NavButton"
 import CartButton from "../components/CartButton"
 
-
-
 const Menu = () => {
 
-      //use my menustore
+      //use my menustore to fetch menuitems
       const {menuItems, fetchMenuData, addToCart} = useMenuStore()
       useEffect(() =>{
         fetchMenuData();
